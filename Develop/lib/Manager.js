@@ -19,8 +19,5 @@ class Manager extends Employee{
     }
 }
 
-test4 = new Manager("",1, "", 29)
-test4.getOfficeNumber()
-test4.getRole()
 
 module.exports = Manager

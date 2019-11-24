@@ -27,14 +27,4 @@ class Employee {
 }
 
 
-
-var tester = new Employee("steve", 7, "steve@steve.com");
-var tester2 = new Employee("jeff", 1, "jeff@jeff.com")
-
-tester.getEmail()
-tester2.getName()
-tester.getId()
-tester.getRole()
-
-
 module.exports = Employee

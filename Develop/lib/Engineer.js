@@ -20,9 +20,7 @@ class Engineer extends Employee {
 }
 
 
-test3 = new Engineer ()
-test3.getGithub()
-test3.getRole()
+
 
 module.exports = Engineer
     
