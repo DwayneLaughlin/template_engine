@@ -21,7 +21,7 @@ inquirer
             message: "Select your role",
             name: "role",
             choices: ["Manager", "Engineer", "Intern"]
-        },
+        }, 
     ])
 
     .then(answers => {
