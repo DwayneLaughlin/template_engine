@@ -1,7 +1,7 @@
-manager = require("./develop/lib/manager");
-intern = require("./Develop/lib/Intern");
-engineer = require("./Develop/lib/Engineer");
-employee = require("./Develop/lib/Employee");
+Manager = require("./develop/lib/Manager.js");
+Intern = require("./Develop/lib/Intern.js");
+Engineer = require("./Develop/lib/Engineer.js");
+Employee = require("./Develop/lib/Employee.js");
 inquirer = require("inquirer");
 
 inquirer
@@ -11,6 +11,12 @@ inquirer
             message:"What is your name?",
             name: "name"
         },
+        {
+            type: "input",
+            message: "what is your email address?",
+            name: "email"
+        },
+        
         {
             type: "input",
             message: "What is your ID?",
@@ -59,7 +65,11 @@ inquirer
                     }
                 ])
                 .then (response => {
-                    console.log("you are an intern and you currently attend " + response.schoolname)
+                    
+
+                    const newIntern = new Intern (answers.name, answers.id, answers.email, response.schoolname)
+
+                    console.log(newIntern)
                 })
         }
     })
