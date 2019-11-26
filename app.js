@@ -4,6 +4,9 @@ Engineer = require("./Develop/lib/Engineer.js");
 Employee = require("./Develop/lib/Employee.js");
 inquirer = require("inquirer");
 
+devTeam = [],
+
+
 inquirer
     .prompt([
         {
@@ -37,11 +40,13 @@ inquirer
                     {
                     type: "input",
                     message:"What is your office number?",
-                    name: "office"
+                    name: "officenum"
                     }
                 ])
                 .then(response => {
-                    console.log("you are a manager and your room number is  " + response.office)
+                    const newManager = new Manager (answers.name, answers.id, answers.email, response.officenum)
+                    devTeam.push(newManager)
+                    console.log(devTeam)
                 })
         } else if (answers.role === "Engineer"){
             inquirer
@@ -53,7 +58,9 @@ inquirer
                     }
                 ])
                 .then(response => {
-                    console.log (answers.name +answers.id + response.hubname)
+                    const newEngineer = new Engineer (answers.name, answers.id, answers.email, response.hubname)
+                    devTeam.push(newEngineer)
+                    console.log(devTeam)
                 })
         } else {
             inquirer
@@ -65,11 +72,9 @@ inquirer
                     }
                 ])
                 .then (response => {
-                    
-
                     const newIntern = new Intern (answers.name, answers.id, answers.email, response.schoolname)
-
-                    console.log(newIntern)
+                    devTeam.push(newIntern)
+                    console.log(devTeam)
                 })
         }
     })
