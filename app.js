@@ -3,8 +3,10 @@ Intern = require("./Develop/lib/Intern.js");
 Engineer = require("./Develop/lib/Engineer.js");
 Employee = require("./Develop/lib/Employee.js");
 inquirer = require("inquirer");
+fs = require("fs");
 
-devTeam = [],
+devTeam = [];
+
 
 
 inquirer
@@ -46,7 +48,7 @@ inquirer
                 .then(response => {
                     const newManager = new Manager (answers.name, answers.id, answers.email, response.officenum)
                     devTeam.push(newManager)
-                    console.log(devTeam)
+                    // console.log(devTeam)
                 })
         } else if (answers.role === "Engineer"){
             inquirer
@@ -60,7 +62,12 @@ inquirer
                 .then(response => {
                     const newEngineer = new Engineer (answers.name, answers.id, answers.email, response.hubname)
                     devTeam.push(newEngineer)
-                    console.log(devTeam)
+
+                    engineerString = JSON.stringify(newEngineer)
+                    
+                    // fs.appendFile("./Develop/templates/main.html", engineerString, function(err) {
+                    //     if (err) throw err;
+                    // })
                 })
         } else {
             inquirer
@@ -73,8 +80,20 @@ inquirer
                 ])
                 .then (response => {
                     const newIntern = new Intern (answers.name, answers.id, answers.email, response.schoolname)
+                    internString = JSON.stringify(newIntern)
                     devTeam.push(newIntern)
-                    console.log(devTeam)
+                    
+                    // fs.appendFile("./Develop/templates/main.html", internString, function(err) {
+                    //     if (err) throw err;
+                    // })
+                
                 })
+                
         }
     })
+
+    fs.appendFile("./Develop/templates/main.html",devTeam,function(err) {
+        if (err) throw err;
+    })
+
+    
