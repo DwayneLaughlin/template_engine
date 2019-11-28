@@ -9,6 +9,7 @@ devTeam = [];
 
 
 
+
 inquirer
     .prompt([
         {
@@ -47,8 +48,16 @@ inquirer
                 ])
                 .then(response => {
                     const newManager = new Manager (answers.name, answers.id, answers.email, response.officenum)
-                    devTeam.push(newManager)
-                    // console.log(devTeam)
+
+                    managerString = JSON.stringify(
+                        "<br>Name: " + answers.name + "<br> ID: " + answers.id + "<br>Email: " + answers.email + "<br> Role: " + answers.role + "<br> Office Number: " + response.officenum + "<br><br>"
+                        ); 
+
+                    devTeam.push(managerString)
+
+                    fs.appendFile("./Develop/templates/main.html", devTeam, function(err) {
+                        if (err) throw err;
+                    })
                 })
         } else if (answers.role === "Engineer"){
             inquirer
@@ -61,13 +70,18 @@ inquirer
                 ])
                 .then(response => {
                     const newEngineer = new Engineer (answers.name, answers.id, answers.email, response.hubname)
-                    devTeam.push(newEngineer)
 
-                    engineerString = JSON.stringify(newEngineer)
+                    engineerString = JSON.stringify(
+                        "<br>Name: " + answers.name + "<br> ID: " + answers.id + "<br>Email: " + answers.email + "<br> Role: " + answers.role + "<br> Github Name: " + response.hubname + "<br><br>"
+                        ); 
+
+                    devTeam.push(engineerString)
+
                     
-                    // fs.appendFile("./Develop/templates/main.html", engineerString, function(err) {
-                    //     if (err) throw err;
-                    // })
+                    
+                    fs.appendFile("./Develop/templates/main.html", devTeam, function(err) {
+                        if (err) throw err;
+                    })
                 })
         } else {
             inquirer
@@ -80,12 +94,18 @@ inquirer
                 ])
                 .then (response => {
                     const newIntern = new Intern (answers.name, answers.id, answers.email, response.schoolname)
-                    internString = JSON.stringify(newIntern)
+
+                    internString = JSON.stringify(
+                        "<br>Name: " + answers.name + "<br> ID: " + answers.id + "<br>Email: " + answers.email + "<br> Role: " + answers.role + "<br> School: " + response.schoolname + "<br><br>"
+                        ); 
+
                     devTeam.push(newIntern)
                     
-                    // fs.appendFile("./Develop/templates/main.html", internString, function(err) {
-                    //     if (err) throw err;
-                    // })
+                    fs.appendFile("./Develop/templates/main.html", devTeam, function(err) {
+                        if (err) throw err;
+                        
+                    })
+                    
                 
                 })
                 
@@ -94,6 +114,8 @@ inquirer
 
     fs.appendFile("./Develop/templates/main.html",devTeam,function(err) {
         if (err) throw err;
+        
+    
     })
 
     
