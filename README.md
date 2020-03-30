@@ -1,5 +1,4 @@
 # template_engine
+This application works in node using inquirer and jest. It is a template engine that generates employee job profiles based on the submitted information. 
 
-This is an attempt to make a generator using inquirer and setting classes. It was also an attempt to becom more familiar with using jest to test coding. All of the individual job descriptions in the lib directory pass their respective tests.
-
-The app file pulls information from inquirer questions and assigns it to class. The answers get pushed to an array and then the array is entries are appended to the main HTML file
+Start the app by running node.js and making selections.
