@@ -10,6 +10,7 @@ devTeam = [];
 
 
 
+
 inquirer
     .prompt([
         {
@@ -50,7 +51,7 @@ inquirer
                     const newManager = new Manager (answers.name, answers.id, answers.email, response.officenum)
 
                     managerString = JSON.stringify(
-                        "<br>Name: " + answers.name + "<br> ID: " + answers.id + "<br>Email: " + answers.email + "<br> Role: " + answers.role + "<br> Office Number: " + response.officenum + "<br><br>"
+                        "<br><div>Name: " + answers.name + "<br> ID: " + answers.id + "<br>Email: " + answers.email + "<br> Role: " + answers.role + "<br> Office Number: " + response.officenum + "</div><br><br>"
                         ); 
 
                     devTeam.push(managerString)
@@ -99,7 +100,7 @@ inquirer
                         "<br>Name: " + answers.name + "<br> ID: " + answers.id + "<br>Email: " + answers.email + "<br> Role: " + answers.role + "<br> School: " + response.schoolname + "<br><br>"
                         ); 
 
-                    devTeam.push(newIntern)
+                    devTeam.push(internString)
                     
                     fs.appendFile("./Develop/templates/main.html", devTeam, function(err) {
                         if (err) throw err;
