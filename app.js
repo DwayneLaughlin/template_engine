@@ -117,11 +117,7 @@ inquirer
         }
     })
 
-    // fs.appendFile("./Develop/templates/main.html",devTeam,function(err) {
-    //     if (err) throw err;
-        
-    
-    // })
+
 
 
     
