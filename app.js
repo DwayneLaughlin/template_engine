@@ -59,7 +59,7 @@ inquirer
 
                     managerGroup.push(managerString)
 
-                    fs.appendFile("./Develop/templates/main.html", devTeam, function(err) {
+                    fs.appendFile("./Develop/templates/main.html", managerGroup, function(err) {
                         if (err) throw err;
                     })
                 })
