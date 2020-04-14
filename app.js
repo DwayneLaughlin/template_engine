@@ -83,7 +83,7 @@ inquirer
 
                     
                     
-                    fs.appendFile("./Develop/templates/main.html", devTeam, function(err) {
+                    fs.appendFile("./Develop/templates/main.html", engineerGroup, function(err) {
                         if (err) throw err;
                     })
                 })
@@ -105,7 +105,7 @@ inquirer
 
                     internGroup.push(internString)
                     
-                    fs.appendFile("./Develop/templates/main.html", devTeam, function(err) {
+                    fs.appendFile("./Develop/templates/main.html", internGroup, function(err) {
                         if (err) throw err;
                         
                     })
