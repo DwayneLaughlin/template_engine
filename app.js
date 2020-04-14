@@ -5,6 +5,7 @@ Employee = require("./Develop/lib/Employee.js");
 inquirer = require("inquirer");
 fs = require("fs");
 
+
 managerGroup = [];
 internGroup = [];
 engineerGroup = [];
@@ -116,11 +117,11 @@ inquirer
         }
     })
 
-    fs.appendFile("./Develop/templates/main.html",devTeam,function(err) {
-        if (err) throw err;
+    // fs.appendFile("./Develop/templates/main.html",devTeam,function(err) {
+    //     if (err) throw err;
         
     
-    })
+    // })
 
 
     
