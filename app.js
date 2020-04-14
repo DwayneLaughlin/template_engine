@@ -5,7 +5,10 @@ Employee = require("./Develop/lib/Employee.js");
 inquirer = require("inquirer");
 fs = require("fs");
 
-devTeam = [];
+managerGroup = [];
+internGroup = [];
+engineerGroup = [];
+
 
 
 
@@ -54,7 +57,7 @@ inquirer
                         "<br><div>Name: " + answers.name + "<br> ID: " + answers.id + "<br>Email: " + answers.email + "<br> Role: " + answers.role + "<br> Office Number: " + response.officenum + "</div><br><br>"
                         ); 
 
-                    devTeam.push(managerString)
+                    managerGroup.push(managerString)
 
                     fs.appendFile("./Develop/templates/main.html", devTeam, function(err) {
                         if (err) throw err;
@@ -76,7 +79,7 @@ inquirer
                         "<br>Name: " + answers.name + "<br> ID: " + answers.id + "<br>Email: " + answers.email + "<br> Role: " + answers.role + "<br> Github Name: " + response.hubname + "<br><br>"
                         ); 
 
-                    devTeam.push(engineerString)
+                    engineerGroup.push(engineerString)
 
                     
                     
@@ -100,7 +103,7 @@ inquirer
                         "<br>Name: " + answers.name + "<br> ID: " + answers.id + "<br>Email: " + answers.email + "<br> Role: " + answers.role + "<br> School: " + response.schoolname + "<br><br>"
                         ); 
 
-                    devTeam.push(internString)
+                    internGroup.push(internString)
                     
                     fs.appendFile("./Develop/templates/main.html", devTeam, function(err) {
                         if (err) throw err;
